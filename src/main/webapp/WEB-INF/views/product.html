@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--header càn nhúng-->
+<th:block th:insert="~{index::head}"></th:block>
+<!--Nhũng phân đoạn kèm tham số-->
+<th:block th:insert="~{index::main('Hung Ho')}"></th:block>
+<th:block th:replace="~{index::foot}">
+
+</th:block>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1 th:text="${'Chào mừng bạn'+ name +' đến với trang chủ'}"></h1>
+<span th:text="|Tuổi:  ${age}|"></span>
+<p th:text="${sex?'Nam':'Nữ'}"></p>
+<!--Hiển thị ra đoạn html-->
+<div th:utext="${html}">
+
+</div>
+<!--hiển thị ra đoạn text-->
+<div th:text="${html}">
+
+</div>
+<li th:text="#{mess.success}"></li>
+<li th:text="#{mess.error}"></li>
+<li th:text="#{mess.warn}"></li>
+
+<!--Néu có userlogin truyền tuf model xuống thì in ra , không thì in chữ login-->
+<a th:href="@{'#'}" th:text="${userlogin}?:'login'"></a>
+
+<!--hàm forrmat-->
+<p>
+    Today is: <span th:text="${#calendars.format(today,'dd MMMM yyyy')}"></span>
+</p>
+
+<ul th:object="${person}">
+    <li th:text="*{id}"></li>
+    <li th:text="*{name}"></li>
+    <li th:text="*{age}"></li>
+</ul>
+<ul>
+    <li th:text="${person.id}"></li>
+    <li th:text="${person.name}"></li>
+    <li th:text="${person.age}"></li>
+</ul>
+<!-- hiển thị liên kết-->
+<img th:src="@{|/image/${avatar}|}" alt="">
+</body>
+</html>
