@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .bg-red{
+            background: red;
+        }
+    </style>
+</head>
+<body>
+<!--toán tử 3 ngôi-->
+<h1 th:class="${test}?'bg-red':''">Condition</h1>
+<!--câu lệnh điều kiện-->
+<p th:if="${test}==true">Điều kiện đúng</p>
+<p th:unless="${test}==true">Điều kiện sai</p>
+<!--Switch case-->
+<div th:switch="${test}">
+    <p th:case="true">Điều kiện đúng</p>
+    <p th:case="false">Điều kiện sai</p>
+</div>
+
+
+<!--Vòng lặp -->
+<li th:each="fr,loop:${list}" th:text="${loop.index+' '+fr}"></li>
+</body>
+</html>

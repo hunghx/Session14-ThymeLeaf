@@ -6,7 +6,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import ra.model.Persons;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Controller
 @RequestMapping
@@ -26,5 +28,15 @@ public class HomeController {
     @GetMapping("/product")
     public  String product(){
         return "product";
+    }
+    @GetMapping("/conditon")
+    public  String condition(Model model){
+        model.addAttribute("test", false);
+        List<String> list = new ArrayList<>();
+        list.add("Banana");
+        list.add("Apple");
+        list.add("Orange");
+        model.addAttribute("list",list);
+        return "condition";
     }
 }
